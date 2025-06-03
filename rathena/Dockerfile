@@ -10,11 +10,16 @@ COPY app/ /app/
 
 WORKDIR /app
 
+# 设置脚本执行权限
+RUN chmod +x athena-start
+
 # 检查关键文件是否存在
 RUN echo -e "\033[1;32mChecking project structure:\033[0m" && \
     ls -la && \
     echo -e "\033[1;32mChecking if CMakeLists.txt exists:\033[0m" && \
     ls -la CMakeLists.txt && \
+    echo -e "\033[1;32mChecking athena-start permissions:\033[0m" && \
+    ls -la athena-start && \
     echo -e "\033[1;32mChecking src subdirectory:\033[0m" && \
     ls -la src/ && \
     echo -e "\033[1;32mChecking src/custom directory:\033[0m" && \

@@ -4,6 +4,10 @@ services:
   rathena-server:
     build: ./rathena
     container_name: rathena-server
+    ports:
+      - "6900:6900"  # Login Server
+      - "6121:6121"  # Char Server
+      - "5121:5121"  # Map Server
     volumes:
       - ./rathena/conf:/app/conf
       - ./rathena/logs:/app/logs
