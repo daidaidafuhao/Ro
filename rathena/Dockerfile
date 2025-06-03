@@ -8,8 +8,8 @@ RUN apt-get update && \
 # 复制 src 目录到 /app
 COPY src/ /app/
 
-# 检查 custom 目录内容
-RUN ls -la /app/custom
+# 检查 custom 目录内容并以颜色输出
+RUN echo -e "\033[1;32mContents of /app/custom:\033[0m" && ls -la /app/custom
 
 WORKDIR /app
 
