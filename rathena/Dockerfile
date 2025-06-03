@@ -20,11 +20,13 @@ RUN echo -e "\033[1;32mChecking project structure:\033[0m" && \
     echo -e "\033[1;32mChecking src subdirectory:\033[0m" && \
     ls -la src/
 
-# 创建构建目录并编译
+# 创建构建目录并编译（减少并行度避免内存问题）
 RUN mkdir -p build && \
     cd build && \
+    echo -e "\033[1;33mRunning cmake...\033[0m" && \
     cmake .. && \
-    make -j$(nproc)
+    echo -e "\033[1;33mStarting make with reduced parallelism...\033[0m" && \
+    make -j2 VERBOSE=1
 
 # 启动服务
 CMD ["bash", "-c", "./athena-start start && tail -f /dev/null"] 
