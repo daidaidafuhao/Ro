@@ -613,6 +613,9 @@ add_subdirectory( src )
 # final checks and warnings
 #
 
+# Add custom directory to include path for defines_pre.hpp and defines_post.hpp
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/custom)
+
 list( LENGTH  TARGET_LIST  _LEN )
 if( _LEN EQUAL 0 )
 	message( FATAL_ERROR "no targets available" )
