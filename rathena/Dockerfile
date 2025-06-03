@@ -5,17 +5,26 @@ RUN apt-get update && \
     libmariadb-dev libmariadb-dev-compat libpcre3-dev && \
     apt-get clean
 
-# 复制 src 目录到 /app
+# 复制src目录（包含CMakeLists.txt和源代码）到容器
 COPY src/ /app/
-
-# 检查 custom 目录内容并以颜色输出
-RUN echo -e "\033[1;32mContents of /app/custom:\033[0m" && ls -la /app/custom
 
 WORKDIR /app
 
-# 确保 custom 目录存在
-RUN mkdir -p custom
+# 检查关键文件是否存在
+RUN echo -e "\033[1;32mChecking project structure:\033[0m" && \
+    ls -la && \
+    echo -e "\033[1;32mChecking custom directory:\033[0m" && \
+    ls -la custom/ && \
+    echo -e "\033[1;32mChecking defines_pre.hpp:\033[0m" && \
+    cat custom/defines_pre.hpp && \
+    echo -e "\033[1;32mChecking src subdirectory:\033[0m" && \
+    ls -la src/
 
-RUN mkdir build && cd build && cmake .. && make
+# 创建构建目录并编译
+RUN mkdir -p build && \
+    cd build && \
+    cmake .. && \
+    make -j$(nproc)
 
+# 启动服务
 CMD ["bash", "-c", "./athena-start start && tail -f /dev/null"] 
