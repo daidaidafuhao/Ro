@@ -7,17 +7,11 @@ RUN apt-get update && \
 
 WORKDIR /app
 
-# 首先复制 CMakeLists.txt
-COPY CMakeLists.txt ./
-
-# 复制 src 目录
-COPY src/ ./src/
+# 复制所有必要的文件
+COPY . .
 
 # 确保 custom 目录存在
 RUN mkdir -p src/custom
-
-# 复制 custom 目录
-COPY src/custom/ ./src/custom/
 
 RUN mkdir build && cd build && cmake .. && make
 
