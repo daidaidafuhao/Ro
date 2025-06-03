@@ -10,19 +10,6 @@ COPY . /app/
 
 WORKDIR /app
 
-# 检查关键文件是否存在
-RUN echo -e "\033[1;32mChecking project structure:\033[0m" && \
-    ls -la && \
-    echo -e "\033[1;32mChecking if CMakeLists.txt exists:\033[0m" && \
-    ls -la CMakeLists.txt && \
-    echo -e "\033[1;32mChecking src subdirectory:\033[0m" && \
-    ls -la src/ && \
-    echo -e "\033[1;32mChecking src/custom directory:\033[0m" && \
-    ls -la src/custom/ && \
-    echo -e "\033[1;32mChecking src/custom/defines_pre.hpp:\033[0m" && \
-    cat src/custom/defines_pre.hpp && \
-    echo -e "\033[1;32mChecking src/custom/defines_post.hpp:\033[0m" && \
-    cat src/custom/defines_post.hpp
 
 # 创建构建目录并编译
 RUN mkdir -p build && \

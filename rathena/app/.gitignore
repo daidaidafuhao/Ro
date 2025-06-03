@@ -86,7 +86,7 @@ Thumbs.db
 /src/common/version.hpp
 
 # /src/custom/
-/src/custom
+# /src/custom  # 注释掉这行，允许上传custom目录
 
 # /src/login/
 /src/login/Makefile

@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   rathena-server:
-    build: ./rathena/src
+    build: ./rathena
     container_name: rathena-server
     volumes:
       - ./rathena/conf:/app/conf
