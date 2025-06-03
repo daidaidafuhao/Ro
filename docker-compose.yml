@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  rathena-server:
+    build: ./rathena
+    container_name: rathena-server
+    volumes:
+      - ./rathena/conf:/app/conf
+      - ./rathena/logs:/app/logs
+    depends_on:
+      - mariadb
+    networks:
+      - ro-network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  mariadb:
+    image: mariadb:10.5
+    container_name: rathena-db
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./init-sql:/docker-entrypoint-initdb.d
+      - mariadb-data:/var/lib/mysql
+    networks:
+      - ro-network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  fluxcp:
+    build: ./fluxcp
+    container_name: rathena-fluxcp
+    ports:
+      - "8080:80"
+    depends_on:
+      - mariadb
+    networks:
+      - ro-network
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+networks:
+  ro-network:
+    driver: bridge
+
+volumes:
+  mariadb-data:
+    driver: local 

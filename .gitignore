@@ -1,0 +1,23 @@
+# Environment variables
+.env
+
+# Docker volumes
+mariadb-data/
+
+# Logs
+rathena/logs/
+*.log
+
+# Build files
+rathena/build/
+rathena/src/build/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db 
