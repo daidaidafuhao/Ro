@@ -621,3 +621,6 @@ message( STATUS "Available targets:" )
 foreach( _TARGET IN ITEMS ${TARGET_LIST} )
 	message( STATUS "\t${_TARGET}" )
 endforeach()
+
+# 包含 custom 目录
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/custom)
