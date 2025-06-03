@@ -7,6 +7,10 @@ RUN apt-get update && \
 
 # 复制 src 目录到 /app
 COPY src/ /app/
+
+# 检查 custom 目录内容
+RUN ls -la /app/custom
+
 WORKDIR /app
 
 # 确保 custom 目录存在
