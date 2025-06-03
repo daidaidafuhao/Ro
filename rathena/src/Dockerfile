@@ -16,36 +16,13 @@ RUN echo -e "\033[1;32mChecking project structure:\033[0m" && \
     echo -e "\033[1;32mChecking if CMakeLists.txt exists:\033[0m" && \
     ls -la CMakeLists.txt && \
     echo -e "\033[1;32mChecking src subdirectory:\033[0m" && \
-    ls -la src/
-
-# 创建custom目录并创建必要的头文件
-RUN mkdir -p custom && \
-    echo "// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL" > custom/defines_pre.hpp && \
-    echo "#ifndef CUSTOM_DEFINES_PRE_HPP" >> custom/defines_pre.hpp && \
-    echo "#define CUSTOM_DEFINES_PRE_HPP" >> custom/defines_pre.hpp && \
-    echo "" >> custom/defines_pre.hpp && \
-    echo "// Custom pre-defines for rAthena" >> custom/defines_pre.hpp && \
-    echo "// These defines are processed before all other configuration" >> custom/defines_pre.hpp && \
-    echo "" >> custom/defines_pre.hpp && \
-    echo "// Add any custom server configurations here" >> custom/defines_pre.hpp && \
-    echo "" >> custom/defines_pre.hpp && \
-    echo "#endif /* CUSTOM_DEFINES_PRE_HPP */" >> custom/defines_pre.hpp && \
-    echo "// Copyright (c) rAthena Dev Teams - Licensed under GNU GPL" > custom/defines_post.hpp && \
-    echo "#ifndef CUSTOM_DEFINES_POST_HPP" >> custom/defines_post.hpp && \
-    echo "#define CUSTOM_DEFINES_POST_HPP" >> custom/defines_post.hpp && \
-    echo "" >> custom/defines_post.hpp && \
-    echo "// Custom post-defines for rAthena" >> custom/defines_post.hpp && \
-    echo "// These defines are processed after all other configuration" >> custom/defines_post.hpp && \
-    echo "" >> custom/defines_post.hpp && \
-    echo "#endif /* CUSTOM_DEFINES_POST_HPP */" >> custom/defines_post.hpp
-
-# 验证文件创建成功
-RUN echo -e "\033[1;32mChecking custom directory:\033[0m" && \
-    ls -la custom/ && \
-    echo -e "\033[1;32mChecking defines_pre.hpp:\033[0m" && \
-    cat custom/defines_pre.hpp && \
-    echo -e "\033[1;32mChecking defines_post.hpp:\033[0m" && \
-    cat custom/defines_post.hpp
+    ls -la src/ && \
+    echo -e "\033[1;32mChecking src/custom directory:\033[0m" && \
+    ls -la src/custom/ && \
+    echo -e "\033[1;32mChecking src/custom/defines_pre.hpp:\033[0m" && \
+    cat src/custom/defines_pre.hpp && \
+    echo -e "\033[1;32mChecking src/custom/defines_post.hpp:\033[0m" && \
+    cat src/custom/defines_post.hpp
 
 # 创建构建目录并编译
 RUN mkdir -p build && \
