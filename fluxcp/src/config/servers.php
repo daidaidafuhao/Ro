@@ -13,9 +13,9 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => '127.0.0.1',
+			'Hostname'   => 'mariadb',
 			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
+			'Password'   => 'ragnarok_password',
 			'Database'   => 'ragnarok',
 			'Persistent' => true,
 			'Timezone'   => null // Example: '+0:00' is UTC.
@@ -34,18 +34,18 @@ return array(
 			'Convert'    => 'utf8',
 				// -- 'Convert' option only works when 'Encoding' option is specified and iconv (http://php.net/iconv) is available.
 				// -- It specifies the encoding to convert your MySQL data to on the website (most likely needs to be utf8)
-			'Hostname'   => '127.0.0.1',
+			'Hostname'   => 'mariadb',
 			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
+			'Password'   => 'ragnarok_password',
 			'Database'   => 'ragnarok',
 			'Persistent' => true,
 			'Timezone'   => null // Possible values is as described in the comment in DbConfig.
 		),
 		// Web server configuration.
 		'WebDbConfig'    => array(
-			'Hostname'   => '127.0.0.1',
+			'Hostname'   => 'mariadb',
 			'Username'   => 'ragnarok',
-			'Password'   => 'ragnarok',
+			'Password'   => 'ragnarok_password',
 			'Database'   => 'ragnarok',
 			'Persistent' => true
 		),
