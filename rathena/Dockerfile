@@ -5,13 +5,12 @@ RUN apt-get update && \
     libmariadb-dev libmariadb-dev-compat libpcre3-dev && \
     apt-get clean
 
+# 复制 src 目录到 /app
+COPY src/ /app/
 WORKDIR /app
 
-# 复制所有必要的文件
-COPY . .
-
 # 确保 custom 目录存在
-RUN mkdir -p src/custom
+RUN mkdir -p custom
 
 RUN mkdir build && cd build && cmake .. && make
 
