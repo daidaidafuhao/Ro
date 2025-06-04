@@ -1,0 +1,2 @@
+// Custom battle configuration
+// Add your custom settings here 

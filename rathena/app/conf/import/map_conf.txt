@@ -1,0 +1,2 @@
+// Custom map server configuration
+// Add your custom settings here 
