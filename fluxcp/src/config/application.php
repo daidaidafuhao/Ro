@@ -4,12 +4,12 @@
 return array(
 	'ServerAddress'				=> 'localhost',				// This value is the hostname:port under which Flux runs. (e.g., example.com or example.com:80)
 	'BaseURI'					=> '',						// The base URI is the base web root on which your application lies.
-	'InstallerPassword'			=> 'secretpassword',		// Installer/updater password.
+	'InstallerPassword'			=> getenv('DB_PASSWORD') ?: 'XXXXXXXX',		// Installer/updater password.
 	'RequireOwnership'			=> true,					// Require the executing user to be owner of the FLUX_ROOT/data/ directory tree? (Better for security)
 															// WARNING: This will be mostly IGNORED on non-POSIX-compliant OSes (e.g. Windows).
 	'DefaultLoginGroup'			=> null,
 	'DefaultCharMapServer'		=> null,
-	'DefaultLanguage'			=> 'en_us',					// Specify the default control panel language (see FLUX_ROOT/lang/ directory for available languages.)
+	'DefaultLanguage'			=> 'zh_cn',					// Specify the default control panel language (see FLUX_ROOT/lang/ directory for available languages.)
 	'SiteTitle'					=> 'Flux Control Panel',	// This value is only used if the theme decides to use it.
 	'ThemeName'					=> array('default', 'bootstrap'), // Names of the themes you would like list for use in the footer. Themes are in FLUX_ROOT/themes.
 	'ScriptTimeLimit'			=> 0,						// Script execution time limit. Specifies (in seconds) how long a page should run before timing out. (0 means forever)
