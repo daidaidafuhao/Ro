@@ -1,0 +1,6 @@
+// Character Server Import Configuration
+// Add custom character server configurations here
+
+// Example:
+// char_maintenance: 0
+// char_new_display: 0 

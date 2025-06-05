@@ -1,0 +1,6 @@
+// Login Server Import Configuration
+// Add custom login server configurations here
+
+// Example:
+// new_account: yes
+// start_limited_time: -1 
