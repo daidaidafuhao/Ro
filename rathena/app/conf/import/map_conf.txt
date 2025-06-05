@@ -1,2 +1,9 @@
 // Custom map server configuration
 // Add your custom settings here 
+
+// Server Communication username and password
+userid: rathena
+passwd: 1999413wtic
+
+// Character Server IP (localhost since all servers in same container)
+char_ip: 127.0.0.1 

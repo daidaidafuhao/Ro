@@ -1,6 +1,13 @@
 // Character Server Import Configuration
 // Add custom character server configurations here
 
+// Server Communication username and password
+userid: rathena
+passwd: 1999413wtic
+
+// Login Server IP (localhost since all servers in same container)
+login_ip: 127.0.0.1
+
 // Example:
 // char_maintenance: 0
 // char_new_display: 0 
