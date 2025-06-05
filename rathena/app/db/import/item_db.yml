@@ -1,0 +1,12 @@
+# Item Database Import File
+# Add custom items here
+# Format:
+#   - Id: item_id
+#     AegisName: item_name
+#     Name: "Display Name"
+
+Header:
+  Type: ITEM_DB
+  Version: 1
+
+Body: [] 

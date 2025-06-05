@@ -1,0 +1,4 @@
+# Import additional map indexes here
+# Format: map_name map_index
+# Example: 
+# mymap01 1500 

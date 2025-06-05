@@ -1,0 +1,8 @@
+# Monster Database Import File
+# Add custom monsters here
+
+Header:
+  Type: MOB_DB
+  Version: 1
+
+Body: [] 

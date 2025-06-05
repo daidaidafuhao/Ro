@@ -1,0 +1,8 @@
+# Skill Database Import File
+# Add custom skills here
+
+Header:
+  Type: SKILL_DB
+  Version: 1
+
+Body: [] 
