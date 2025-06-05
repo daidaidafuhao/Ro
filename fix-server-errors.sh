@@ -15,7 +15,10 @@ docker cp rathena/app/conf/msg_conf/import/. rathena-server:/opt/rathena/conf/ms
 
 # 3. 应用数据库修复
 echo "🗄️ 更新数据库用户..."
-docker exec -it rathena-db mysql -u root -p1999413wtic rathena < /docker-entrypoint-initdb.d/03-create-server-users.sql
+# 复制SQL文件到数据库容器
+docker cp init-sql/03-create-server-users.sql rathena-db:/tmp/03-create-server-users.sql
+# 执行SQL文件
+docker exec -it rathena-db mysql -u root -p1999413wtic rathena -e "source /tmp/03-create-server-users.sql"
 
 # 4. 重启服务
 echo "🔄 重启服务..."
